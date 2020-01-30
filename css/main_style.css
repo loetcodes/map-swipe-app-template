@@ -1,0 +1,690 @@
+:root {
+	--theme-main: #242424;
+	--theme-color: #fff;
+	--theme-text: #d1d1d1;
+	--text-shadow: #cacaca1f;
+}
+
+
+body {
+	height: -webkit-fill-available;
+	max-height: 100vh;
+	width: 100vw;
+	padding: 0;
+    margin: 0;
+    font-family:'HelveticaNeueu', Helvetica, Tahoma, sans-serif;
+    background-color: #242424;
+    background-color: var(--theme-main);
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: grid;
+    grid-template: auto auto 75vh auto / 100%;
+}
+
+/*Preloader*/
+#preloader {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--theme-main);
+}
+
+.loading-logo {
+	display: flex;
+	justify-content: center;
+}
+
+.loading-logo img {
+	width: 35%;
+}
+
+.loading-text {
+	color: var(--theme-color);
+	letter-spacing: 4px;
+	font-size: 3vmin;
+	text-align: center;
+}
+
+.loading-text p {
+	text-transform: uppercase;
+	font-size: 2em;
+	letter-spacing: 4px;
+	overflow: hidden;
+	background: linear-gradient(90deg, #242424, #fff, #242424);
+	background-repeat: no-repeat;
+	background-size: 80%;
+	animation: textGlow 3s linear infinite;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: rgba(255, 255, 255, 0);
+	text-shadow: 2px 0px 2px var(--text-shadow);
+
+}
+
+.loader-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.close-wrapper {
+	animation: fadeOut;
+	animation-duration: 2s;
+	animation-delay: 1.2s;
+	animation-timing-function: ease-out;
+	animation-fill-mode: forwards;
+}
+
+.fade-out {
+	opacity: 0;
+	transition: all 1s ease-out;
+}
+
+
+/*Info window*/
+
+.infoButton {
+	grid-row: 3;
+	grid-column: 1;
+	display: flex;
+	justify-content: flex-end;
+}
+
+
+.infoContainer {
+	/*width : 36%;
+	position: absolute;
+	top: 32%;
+	left: 32%;
+	z-index: 3;
+	margin: auto;
+	background: #efefef;
+	border: 2px solid #d0d0d0;
+	border-radius: 6px;
+	box-shadow: 0px 0px 15px 4px #242424fa;
+	display: none;*/
+}
+
+
+.infoContainer {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	background: var(--theme-main);
+	box-shadow: 0px 0px 15px 4px #242424fa;
+	display: none;
+	width: 100%;
+	height: 100%;
+	color: #d1d1d1;
+}
+
+.infoWindowMask {
+	width: 100%;
+	height: 100%;
+	background: var(--theme-main);
+	opacity: 0.8;
+}
+
+.visible {
+	display: flex;
+	background: none;
+	height: 100%;
+	width: 100%;
+    z-index: 1;
+	opacity: 1;
+	animation: fadeIn 300ms forwards;
+}
+
+.invisible {
+	opacity: 1;
+	animation: fadeOut;
+	animation-timing-function: linear;
+	animation-duration: 0.25s;
+	animation-fill-mode: forwards;
+}
+
+.infoPanelExpand {
+	position: fixed;
+	height: 100%;
+	width: 75%;
+	max-width: 300px;
+	overflow-y: auto;
+	background: var(--theme-main);
+	box-shadow: 0px 0px 15px 4px #242424fa;
+	opacity: 1;
+	animation-delay: 0.15s;
+	animation: expandSlideRight 300ms forwards;
+}
+
+/*.visible {
+	display: block;
+	opacity: 0;
+	animation: grow-fade-in;
+	animation-timing-function: linear;
+	animation-duration: 0.5s;
+	animation-delay: 0.1s;
+	animation-fill-mode: forwards;
+}*/
+
+/*.invisible {
+	opacity: 1;
+	animation: shrink-fade-out;
+	animation-timing-function: linear;
+	animation-duration: 0.25s;
+	animation-fill-mode: forwards;
+}*/
+
+.infoContainer .infoTitle {
+	display: grid;
+	grid-template: 100% / 7% 86% 7%;
+	margin: 5px 10px 0px 10px;
+}
+
+.infoContainer h3 {
+	font-size: 1.4em;
+	text-align: center;
+	letter-spacing: 1px;
+	grid-column: 2;
+}
+
+.infoContainer #closeInfo {
+	grid-column: 3;
+	display: flex;
+	justify-content: space-around;
+	height: fit-content;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 6vmin;
+	color: #d1d1d1;
+}
+
+.infoText {
+	font-size: 1.0em;
+	margin: 0% 5% 5% 6%;
+	line-height: 1.2em;
+}
+
+.infoText ul {
+	padding-left: 30px;
+}
+
+
+.container {
+	border: 1px solid #242424;
+	grid-row: 3;
+	grid-column: 1;
+}
+
+#viewDiv{
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin-top: 0;
+}
+
+.header-bar {
+	display: grid;
+	grid-template: 100% / 24% 52% 24%;
+	background: #242424;
+	color: #fff;
+	grid-row: 1;
+	grid-column: 1;
+	margin: 8px 2px;
+}
+
+.country-div {
+	grid-column: 1;
+	display: flex;
+}
+
+.title-div {
+	grid-column: 2;
+	display: flex;
+	justify-content: center;
+}
+
+.logo-div {
+	grid-column: 3;
+}
+
+.title-text {
+	font-size: 1.4em;
+	font-size: 4.5vmin;
+	letter-spacing: 2px;
+	margin: 5px 10px;
+	text-align: center;
+	align-self: center;
+}
+
+.subtitle {
+	font-size: 0.9em;
+	font-size: 3vmin;
+	letter-spacing: 2px;
+	margin: 0;
+	margin-left: 4%;
+	align-self: center;
+}
+
+.logo-section {
+	height: 100%;
+	max-height: 80px;
+	margin: auto;
+	margin-right: 5%;
+	display: flex;
+}
+
+.header-logo {
+	height: 45%;
+	height: 6.5vmin;
+	align-self: center;
+}
+
+.tabs {
+	display: grid;
+	grid-template: 100% / 45% 45%;
+	grid-column-gap: 10%;
+}
+
+.layersTop {
+	display: flex;
+}
+
+.sideTabTitle {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 2vmin;
+	letter-spacing: 2px;
+	color: #fff;
+	align-self: center;
+	margin-right: 6px;
+	margin-left: 5px;
+}
+
+#leftTabs {
+	grid-row: 2;
+	grid-column: 1;
+}
+
+#leftLayersList {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	justify-content: center;
+	padding-top: 4px;
+	padding-bottom: 5px;
+}
+
+#rightTabs {
+	grid-row: 4;
+	grid-column: 1;
+}
+
+#rightLayersList {
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	justify-content: center;
+	padding-top: 4px;
+	padding-bottom: 5px;
+}
+
+.imageryLayersTabs {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: end;
+}
+
+.imageryLayersTabs > * {
+	flex: 0 1 auto;
+	align-self: center;
+	margin: auto 1%;
+	margin: 1%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.tabContainer {
+	background-color: #393939;
+}
+
+.tabContainer > * {
+	background-color: #242424;
+	font-size: 2.3vmin;
+	letter-spacing: 1px;
+	text-align: center;
+	color: #fffbde;
+}
+
+.tabsSelect {
+	border: 1px solid #2b2b2b;
+	border-bottom: 1px solid #4d4d4d;
+	box-shadow: 0px 3px 2px #00000042;
+}
+
+.tabsSelect:hover {
+	background-color: #868585;
+	cursor: pointer;
+}
+
+.tabContainer label {
+	padding: 8px 6px;
+	cursor: pointer;
+}
+
+.tabContainer input[type="radio"] {
+  display: none;
+}
+
+.tabContainer input[type="radio"]:checked+label {
+  background-color: #af0000;
+}
+
+.swipe-icon::after {
+	content: "\27f7";
+	color: inherit;
+    font-size: 18px;   
+}
+
+#info {
+    font-size: 22px;  
+}
+
+.esri-widget-button {
+	width: 34px;
+	height: 34px;
+}
+
+[class*="esri-icon"] {
+	font-size: 20px;
+}
+
+
+
+@media screen and (min-width: 426px) and (orientation: portrait) {
+	.title-text {
+		font-size: 1.4em;
+	}
+
+	.subtitle {
+		font-size: 0.9rem;
+	}
+
+	.logo-section {
+		max-height: 7vmin;
+	}
+
+	.header-logo {
+		height: 68%;
+	}
+
+	.sideTabTitle {
+		font-size: 2.4vmin;
+		margin-right: 10px;
+		margin-left: 5px;
+	}
+
+	.tabContainer > * {
+		font-size: 2.5vmin;
+	}
+
+	.infoPanelExpand {
+		position: fixed;
+		height: 100%;
+		width: 75%;
+		max-width: 300px;
+		overflow-y: auto;
+		/* background: var(--theme-main);
+		box-shadow: 0px 0px 15px 4px #242424fa;
+		opacity: 1;
+		animation-delay: 0.15s;
+		animation: expandSlideRight 300ms forwards; */
+	}
+
+}
+
+
+@media only screen and (min-width: 769px) {
+	body {
+		width: 100vw;
+	    grid-template: auto auto 75vh / 46% 9% 46%;
+	}
+
+	.container {
+		border: 2px solid #242424;
+		grid-row: 3;
+		grid-column: 1 / 4;
+	}
+
+	.header-bar {
+		grid-row: 1;
+		grid-column: 1 / 4;
+	}
+
+	.title-text {
+		font-size: 1.5em;
+		margin: 0;
+	}
+
+	.subtitle {
+		font-size: 1em;
+		margin-left: 5%;
+	}
+
+	.logo-section {
+		max-height: 65px;
+	}
+
+	.header-logo {
+		height: 65%;
+	}
+
+	#leftLayersList {
+		justify-content: flex-start;
+		padding-left: 1%;
+		border-top-right-radius: 10px;
+		border-top-left-radius: 0px;
+	}
+
+	#rightTabs {
+		grid-row: 2;
+		grid-column: 3;
+	}
+
+	#rightLayersList {
+		justify-content: flex-end;
+		padding-right: 2%;
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+		margin-right: 1%;
+	}
+
+	.sideTabTitle {
+		display: none;
+	}
+
+	.tabContainer > * {
+		font-size: 1.1rem;
+		letter-spacing: 1px;
+	}
+
+	.tabContainer label {
+		padding: 8px 7px;
+	}
+
+	/*.infoContainer {
+		width : 36%;
+		position: absolute;
+		top: 32%;
+		left: 32%;
+		z-index: 3;
+		margin: auto;
+		background: #efefef;
+		border: 2px solid #d0d0d0;
+		border-radius: 6px;
+		box-shadow: 0px 0px 15px 4px #242424fa;
+		display: none;
+	}*/	
+	/*.visible {
+		display: block;
+		opacity: 0;
+		animation: grow-fade-in;
+		animation-timing-function: linear;
+		animation-duration: 0.5s;
+		animation-delay: 0.1s;
+		animation-fill-mode: forwards;
+	}
+
+	.invisible {
+		opacity: 1;
+		animation: shrink-fade-out;
+		animation-timing-function: linear;
+		animation-duration: 0.25s;
+		animation-fill-mode: forwards;
+	}*/	
+}
+
+
+@media only screen and (min-width: 1024px) {
+	body {
+		width: 100vw;
+	    grid-template: auto auto 73vh / 45% 10% 45%;
+	}
+
+	.container {
+		border: 2px solid #242424;
+		grid-row: 3;
+		grid-column: 1 / 4;
+	}
+
+	#search {
+		position: absolute;
+		z-index: 3;
+		top: 22.5%;
+		left: 8%;
+	}
+
+	.header-bar {
+		grid-row: 1;
+		grid-column: 1 / 4;
+	}
+
+	.title-text {
+		font-size: 1.6em;
+		margin: 0;
+	}
+
+	.subtitle {
+		font-size: 1.1em;
+		margin-left: 5%;
+	}
+
+	.logo-section {
+		max-height: 80px;
+	}
+
+	.header-logo {
+		height: 50%;
+	}
+
+	#leftLayersList {
+		padding-left: 1%;
+		border-top-right-radius: 10px;
+	}
+
+	#rightTabs {
+		grid-row: 2;
+		grid-column: 3;
+	}
+
+	#rightLayersList {
+		justify-content: flex-end;
+		padding-right: 1%;
+		border-top-left-radius: 10px;
+	}
+
+	.tabContainer > * {
+		font-size: 1.3em;
+		letter-spacing: 1px;
+	}
+
+	.tabContainer label {
+		padding: 8px 10px;
+	}
+}
+
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+@keyframes fadeIn {
+	0% { 
+	 	opacity:0.0; 
+	}
+
+    100% {
+    	opacity:1.0; 
+    }
+}
+
+
+@keyframes textGlow {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
+
+
+
+/*Animation used by the info window*/
+@keyframes grow-fade-in {
+	0% {
+		transform:scale(0.4);
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 0.4;
+	}
+
+	100% {
+		transform:scale(1.0);
+		opacity: 1;
+	}
+}
+
+@keyframes shrink-fade-out {
+	0% {
+		transform:scale(1.0);
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.5;
+	}
+
+	100% {
+		transform:scale(0.4);
+		opacity: 0;
+	}
+}
+
+@keyframes expandSlideRight {
+	0% {
+		right: -600px;
+	}
+
+
+	100% {
+		right: 0;
+	}
+
+}

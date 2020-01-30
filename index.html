@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Alqueva, Portugal</title>
+	<link rel="shortcut icon" type="image/jpg" href="favicon.png"/>
+	<link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/dark/main.css">
+	<script src="https://js.arcgis.com/4.13/"></script>
+	<script src="js/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/main_style.css">
+</head>
+<body class="claro">
+	<!-- Title header information -->
+	<div class="header-bar">
+		<div class="country-div">
+			<h2 class="subtitle">Multi-temporal Imagery</h2>
+		</div>
+		<div class="title-div">
+			<h1 class="title-text">Alqueva, Portugal</h1>
+		</div>
+		<div class="logo-div logo-section">
+			<img src="images/Helvetica_logo_white.png" class="header-logo">
+		</div>
+	</div>
+	<!-- Imagery name containers -->	
+	<div id="leftTabs" class="layersTop">
+		<div id="leftTabTitle" class="sideTabTitle">left</div>
+		<div id="leftLayersList" class="imageryLayersTabs tabContainer"></div>
+	</div>
+	<div id="rightTabs" class="layersTop">
+		<div id="rightTabTitle" class="sideTabTitle">right</div>
+		<div id="rightLayersList" class="imageryLayersTabs tabContainer"></div>
+	</div>
+
+
+	<!-- Info Content -->
+  <div id="infoWindow" class="infoContainer">
+  	<div class="infoWindowMask"></div>
+  	<div id="infoPanel" class="infoPanelExpand">
+  		<div class="infoTitle">
+  			<h3>Help</h3>
+  			<a id="closeInfo" href="javascript:void(0)" title="Close">x</a>
+  		</div>
+  		<div class="infoText">
+  			<p>This slider presents imagery for comparison.<br> Tools available for use include:</p>
+  			<ul>
+  				<li>Year buttons - Use the buttons (1995, 2018, etc) to select imagery on either the left or right of the sliding handle.</li>
+  				<li>Zoom In/Out - Use the zoom buttons on the left side</li>
+  				<li>Layers - View all the available layers that you can switch on or off on the map</li>
+  				<li>Layers - View all the available layers that you can switch on or off on the map</li>
+  			</ul>
+  			<p>Use the Year buttons(1995, etc) to select an image on either the left or right of the sliding handle, then drag the swipe handle to compare!<br><br>Courtesy of Geodyn Technology.</p>
+  		</div>
+  		
+  	</div>
+
+    <!-- <div class="infoTitle">
+      <h3>Help</h3>
+      <a id="closeInfo" href="javascript:void(0)" title="Close">x</a>
+    </div>
+    <div class="infoText">
+    	<p>This slider presents imagery for comparison.<br> Tools available for use include:</p>
+    	<ul>
+    		<li>Year buttons - Use the buttons (1995, 2018, etc) to select imagery on either the left or right of the sliding handle.</li>
+    		<li>Zoom In/Out - Use the zoom buttons on the left side</li>
+    		<li>Layers - View all the available layers that you can switch on or off on the map</li>
+    		<li>Layers - View all the available layers that you can switch on or off on the map</li>
+    	</ul>
+    	<p>Use the Year buttons(1995, etc) to select an image on either the left or right of the sliding handle, then drag the swipe handle to compare!<br><br>Courtesy of Geodyn Technology.</p>
+    </div> -->
+
+  </div>
+
+  <!-- Map container -->
+  <div class="container">
+  	<div id="viewDiv"></div>
+  	<div id="swipe" class="esri-widget--button esri-interactive swipe-icon" title="Swipe Tool">
+  	</div>
+  	<div id="info" class="esri-widget--button esri-interactive esri-icon-question info-icon" title="Information">
+  	</div>
+  </div>
+
+  <!-- Preloader -->
+  <div id="preloader" class="loader-wrapper">
+  	<div class="loading-text">
+  		<p>Loading...</p>
+  	</div>
+  </div>
+</body>
+</html>
