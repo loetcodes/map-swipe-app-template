@@ -6,12 +6,10 @@ This file is used to operate the swiping imagery app and all its functionality.
 
 */
 
-
 var displayImageryTabs = [];
 var selectionRight;
 var selectionLeft;
 var info = {};
-
 
 
 window.onload = function() {
@@ -26,8 +24,8 @@ window.onload = function() {
 			}, 500);
 		}
 	});
-
 }
+
 
 require([
 	"esri/WebMap",
@@ -41,11 +39,13 @@ require([
 	"esri/widgets/Swipe",
 	"esri/widgets/Expand"
 	], function (WebMap, MapView, Legend, ScaleBar, Home, Measurement, LayerList, LayerListVM, Swipe, Expand) {
+		// Obtain the webmap id
+		var mapId = document.getElementById('webmap-id').innerText;
+
 		//  Creates a webmap from map id on ArcGIS Online.
 		var webmap = new WebMap({
 			portalItem : {
-				id : "7359775ea9ac4646a320ee7897a47f4a"
-				// id : "9b644fa08cdc431090c653165b4e0a84"
+				id : mapId
 			}
 		});
 
@@ -119,7 +119,6 @@ require([
 			}
 		});
 
-
 		// Loads all the views
 		loadView()
 
@@ -132,7 +131,10 @@ require([
 			.then(function(){
 				for (let item of all_layers) {
 					// Filter imagery and tiled layers into the imagery tabs section only.
-					if (item.type === "imagery" || item.type === "tile") {
+					console.log("Imagery is", item.title);
+					console.log("Imagery type is", item.type);
+					console.log("--------------------------");
+					if (item.type === "imagery" || item.type === "tile" || item.type === "vector-tile") {
 						displayImageryTabs.push(item.title); // adds the image name to the display tabs.
 
 						// Create left and right element tabs.
@@ -192,7 +194,6 @@ require([
 
 			});
 
-
 		function loadView() {
 			view.ui.add(home, "top-left");
 			view.ui.add(layerExpander,"top-right");
@@ -212,11 +213,10 @@ require([
 			}	
 		}
 
-		// Function to switch off imagery layers except those selected. Nothing is returned.
 		function toggleImageryOff(all_layers, ...selections) {
-			//Toggles imagery on and off if swipe function has been selected.
+			// Toggles imagery on and off if swipe function has been selected.
 			for (let item of all_layers) {
-				if (item.type === "imagery" || item.type === "tile") {
+				if (item.type === "imagery" || item.type === "tile" || item.type === "vector-tile") {
 					if (selections.length > 1) {
 						if (item.id != selections[0] && item.id != selections[1]) {
 							item.visible = false;
@@ -229,7 +229,6 @@ require([
 				}
 			}
 		}
-
 
 
 

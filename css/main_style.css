@@ -22,6 +22,7 @@ body {
 }
 
 /*Preloader*/
+
 #preloader {
 	position: absolute;
 	width: 100vw;
@@ -79,6 +80,11 @@ body {
 	transition: all 1s ease-out;
 }
 
+/*Webmap id*/
+
+#webmap-id {
+	display: none;
+}
 
 /*Info window*/
 

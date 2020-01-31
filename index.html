@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>Alqueva, Portugal</title>
+	<title>Cool BaseMaps!</title>
 	<link rel="shortcut icon" type="image/jpg" href="favicon.png"/>
 	<link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/dark/main.css">
 	<script src="https://js.arcgis.com/4.13/"></script>
@@ -15,15 +15,16 @@
 	<!-- Title header information -->
 	<div class="header-bar">
 		<div class="country-div">
-			<h2 class="subtitle">Multi-temporal Imagery</h2>
+			<h2 class="subtitle">BaseMap Collections</h2>
 		</div>
 		<div class="title-div">
-			<h1 class="title-text">Alqueva, Portugal</h1>
+			<h1 class="title-text">Map Comparisons</h1>
 		</div>
 		<div class="logo-div logo-section">
-			<img src="images/Helvetica_logo_white.png" class="header-logo">
+			<img src="images/main_logo.png" class="header-logo">
 		</div>
 	</div>
+
 	<!-- Imagery name containers -->	
 	<div id="leftTabs" class="layersTop">
 		<div id="leftTabTitle" class="sideTabTitle">left</div>
@@ -33,7 +34,6 @@
 		<div id="rightTabTitle" class="sideTabTitle">right</div>
 		<div id="rightLayersList" class="imageryLayersTabs tabContainer"></div>
 	</div>
-
 
 	<!-- Info Content -->
   <div id="infoWindow" class="infoContainer">
@@ -46,31 +46,15 @@
   		<div class="infoText">
   			<p>This slider presents imagery for comparison.<br> Tools available for use include:</p>
   			<ul>
-  				<li>Year buttons - Use the buttons (1995, 2018, etc) to select imagery on either the left or right of the sliding handle.</li>
-  				<li>Zoom In/Out - Use the zoom buttons on the left side</li>
-  				<li>Layers - View all the available layers that you can switch on or off on the map</li>
-  				<li>Layers - View all the available layers that you can switch on or off on the map</li>
+  				<li>Buttons - Use the buttons to select basemaps on either the left or right of the sliding handle.</li>
+  				<li>Zoom - Use the Zoom In/Out buttons on the left side to change zoom levels.</li>
+          <li>Home - Use the Home button to go back to the default view.</li>
+  				<li>Layers - Use the Layers button to switch on or off on the map</li>
+  				<li>Swipe - Use the Swipe button to enable or disable the swipe handle.</li>
   			</ul>
-  			<p>Use the Year buttons(1995, etc) to select an image on either the left or right of the sliding handle, then drag the swipe handle to compare!<br><br>Courtesy of Geodyn Technology.</p>
+  			<p>Use the named buttons to select a map layer on either the left or right of the sliding handle, then drag the swipe handle to compare!</p>
   		</div>
-  		
   	</div>
-
-    <!-- <div class="infoTitle">
-      <h3>Help</h3>
-      <a id="closeInfo" href="javascript:void(0)" title="Close">x</a>
-    </div>
-    <div class="infoText">
-    	<p>This slider presents imagery for comparison.<br> Tools available for use include:</p>
-    	<ul>
-    		<li>Year buttons - Use the buttons (1995, 2018, etc) to select imagery on either the left or right of the sliding handle.</li>
-    		<li>Zoom In/Out - Use the zoom buttons on the left side</li>
-    		<li>Layers - View all the available layers that you can switch on or off on the map</li>
-    		<li>Layers - View all the available layers that you can switch on or off on the map</li>
-    	</ul>
-    	<p>Use the Year buttons(1995, etc) to select an image on either the left or right of the sliding handle, then drag the swipe handle to compare!<br><br>Courtesy of Geodyn Technology.</p>
-    </div> -->
-
   </div>
 
   <!-- Map container -->
@@ -82,11 +66,15 @@
   	</div>
   </div>
 
+  <!-- Web map id for web map on arcgis online -->
+  <span id="webmap-id">0b77704a98264d53913f89d9c0321d16</span>
+
   <!-- Preloader -->
   <div id="preloader" class="loader-wrapper">
   	<div class="loading-text">
   		<p>Loading...</p>
   	</div>
   </div>
+  
 </body>
 </html>
