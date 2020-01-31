@@ -134,7 +134,7 @@ require([
 					console.log("Imagery is", item.title);
 					console.log("Imagery type is", item.type);
 					console.log("--------------------------");
-					if (item.type === "imagery" || item.type === "tile" || item.type === "vector-tile") {
+					if (item.type === "imagery" || item.type === "tile") {
 						displayImageryTabs.push(item.title); // adds the image name to the display tabs.
 
 						// Create left and right element tabs.
@@ -154,6 +154,7 @@ require([
 							}
 							// Make the selection visible
 							item.visible = true;
+							console.log("left selection is", selectionLeft);
 						});
 						let textLabel_left = createInputLabel(item.title, item.title + "_l", "tabsSelect");
 
@@ -172,7 +173,9 @@ require([
 								toggleImageryOff(all_layers, selectionRight);
 							}
 							// Make the selection visible
-							item.visible = true;			
+							item.visible = true;
+							
+							console.log("right selection is", selectionRight);			
 						});
 						let textLabel_right = createInputLabel(item.title, item.title + "_r", "tabsSelect");
 						document.getElementById('leftLayersList').appendChild(leftElement);
@@ -216,8 +219,9 @@ require([
 		function toggleImageryOff(all_layers, ...selections) {
 			// Toggles imagery on and off if swipe function has been selected.
 			for (let item of all_layers) {
-				if (item.type === "imagery" || item.type === "tile" || item.type === "vector-tile") {
+				if (item.type === "imagery" || item.type === "tile") {
 					if (selections.length > 1) {
+						console.log("Item id is", item.id, "selection id is", selections);
 						if (item.id != selections[0] && item.id != selections[1]) {
 							item.visible = false;
 						}
